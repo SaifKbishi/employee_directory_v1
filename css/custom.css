@@ -1,0 +1,62 @@
+.emp-card{
+	display:flex;
+	padding: 10px;
+}
+.name,
+.state,
+.city{
+	text-transform: capitalize;
+}
+.name{
+	font-weight:bold;
+	color:#000;
+}
+
+.modalDisplay{
+  flex-direction: column;
+  background-color: #FFFFFF;
+}
+
+.modal-content-info{
+  height: 60%;
+  border-radius: 10px;
+}
+
+#modalForEmployee .card-details{
+  text-align: center;
+  font-size: large;
+  line-height: 30px;
+}
+
+#modalForEmployee .employee{
+  width: 100%;
+  float: none;
+}
+#modalForEmployee a{
+    text-decoration: none;
+}
+.modalOnly{
+  display: none;
+}
+.display4modal{
+  display: block;
+}
+img{
+  border-radius: 50%;
+}
+li {
+  list-style-type: none;
+}
+
+.modal-btn.next-btn{
+  float: right;
+}
+.modal-btn.prev-btn,
+.modal-btn.next-btn{
+    top: 50%;
+    margin-top: 300px;
+    font-size: 10em;
+}
+.modal-content{
+	border-radius: 10px;
+}

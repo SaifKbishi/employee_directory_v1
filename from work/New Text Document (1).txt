@@ -1,0 +1,126 @@
+$(document).ready(function() {
+  var url = 'https://randomuser.me/api/?results=12';
+  //const employee;
+	console.log('working');
+
+    $('#photos').html('');
+	$.ajax(url,{
+		type: "GET",
+		success: function(data){
+				//console.log('inside $.ajax');
+				console.log(data.results);
+				console.log(data.results[0].picture.medium);
+				console.log('first name: ',data.results[0].name.first);
+				console.log('last name: ',data.results[0].name.last);
+				console.log('email: ',data.results[0].email);
+				console.log('state: ',data.results[0].location.state);
+
+				var employeeHTML = '';
+				if(data.results.length > 0){
+					$.each(data.results, function(i, emp){
+						employeeHTML += '<li class="grid-25 tablet-grid-50">';
+						employeeHTML += '<a href=""><div class="emp-card">'						
+						employeeHTML += '<div class="card-avatar">';
+						employeeHTML += '<img src="' + emp.picture.large + '"></div>';
+
+						employeeHTML += '<div class="card-details">';
+						employeeHTML += '<div class="name"><span>' +data.results[i].name.first + ' </span>';
+						employeeHTML += '<span >' +data.results[i].name.last +'</span></div>';
+						employeeHTML += '<div>' +data.results[i].email +'</div>';
+						employeeHTML += '<div class="state">' +data.results[i].location.city +'</div>';
+						employeeHTML += '</div></div></a></li>'
+					});
+
+				}
+				 $('#photos').html(employeeHTML);
+				/*
+				var employeeModal = '';
+				employeeModal += '';
+				employeeModal += '';
+				employeeModal += '';
+				employeeModal += '';
+				employeeModal += '';
+				employeeModal += '';
+				employeeModal += '';
+				
+				$('#empModal').html(employeeModal);
+				*/
+			}
+		}
+
+	);
+/*	employee = document.getElementsByClassName('emp-card');
+	employee.addEventListener(click, function openModal(){
+		
+	});*/
+
+
+}); // end ready
+
+
+-------------------------------------------------------------------------------------
+$(document).ready(function() {
+  var url = 'https://randomuser.me/api/?results=12';
+  //const employee;
+	console.log('working');
+
+    $('#photos').html('');
+	$.ajax(url,{
+		type: "GET",
+		success: function(data){
+				console.log(data.results);
+				console.log(data.results[0].picture.medium);
+				console.log('first name: ',data.results[0].name.first);
+				console.log('last name: ',data.results[0].name.last);
+				console.log('email: ',data.results[0].email);
+				console.log('state: ',data.results[0].location.state);
+
+				var employeeHTML = '';
+				if(data.results.length > 0){
+					$.each(data.results, function(i, emp){
+						employeeHTML += '<li class="grid-25 tablet-grid-50">';
+						employeeHTML += '<a href=""><div class="emp-card">'						
+						employeeHTML += '<div class="card-avatar">';
+						employeeHTML += '<img src="' + emp.picture.large + '"></div>';
+
+						employeeHTML += '<div class="card-details">';
+						//employeeHTML += '<div class="name"><span>' +data.results[i].name.first + '</span>';
+						//employeeHTML += '<div class="name"><span>' +emp.name.first + '</span>';
+						//employeeHTML += '<span >' +emp.name.last +' </span></div>';
+						employeeHTML += '<div class="name"><span>' +emp.name.first + '</span> ' +'<span >' +emp.name.last +' </span></div>';
+						//employeeHTML += '<div>' +data.results[i].email +'</div>';
+						employeeHTML += '<div>' +emp.email +'</div>';
+						employeeHTML += '<div class="state">' +emp.location.city +'</div>';
+						employeeHTML += '</div></div></a></li>'
+					});
+
+				}
+				$('#photos').html(employeeHTML);
+				
+				var employeeModal = '';
+				console.log(data.results[0].picture.medium);
+				
+				employeeModal += '<li class="grid-25 tablet-grid-50">';
+				employeeModal += '<div class="modal-card">';
+				employeeModal += '<img src="' + emp.picture.large + '">';
+				employeeModal += '<div>' +data.results[i].name.first +' '+data.results[i].name.last +'</div>';
+				employeeModal += '<span>' +data.results[i].email +'</span>';
+				employeeModal += '<div class="state">' +data.results[i].location.city + '</div>';
+				employeeModal += '<div class="state">' +data.results[i].phone + '</div>';
+				employeeModal += '<div class="state">' +data.results[i].location.state + ' '+data.results[i].location.street +' '+ data.results[i].location.postcode+'</div>';
+				employeeModal += '</div>';
+				
+				//$('#empModal').html(employeeModal);				
+			}
+		}
+
+	);
+	employee = document.getElementsByClassName('emp-card');
+	employee.addEventListener(click, function openModal(){
+		
+	});
+
+
+}); // end ready
+
+
